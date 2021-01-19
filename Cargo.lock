@@ -210,7 +210,7 @@ dependencies = [
  "rand 0.7.3",
  "regex",
  "reqwest",
- "secp256k1",
+ "secp256k1 0.20.1",
  "serde",
  "serde_json",
  "signature",
@@ -683,7 +683,7 @@ dependencies = [
  "lazy_static",
  "rand 0.7.3",
  "ring",
- "secp256k1",
+ "secp256k1 0.17.2",
 ]
 
 [[package]]
@@ -951,7 +951,7 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 [[package]]
 name = "ledger-apdu"
 version = "0.7.0"
-source = "git+https://github.com/Zondax/ledger-rs?branch=master#3c1e777c24e695b2d0fa98320613ee9a19b0010e"
+source = "git+https://github.com/Zondax/ledger-rs?branch=master#b8b72b9ba8be6d8912b3ed44bdcd48ed9c96e64d"
 
 [[package]]
 name = "ledger-crypto"
@@ -973,7 +973,7 @@ dependencies = [
 [[package]]
 name = "ledger-transport"
 version = "0.7.0"
-source = "git+https://github.com/Zondax/ledger-rs?branch=master#3c1e777c24e695b2d0fa98320613ee9a19b0010e"
+source = "git+https://github.com/Zondax/ledger-rs?branch=master#b8b72b9ba8be6d8912b3ed44bdcd48ed9c96e64d"
 dependencies = [
  "byteorder",
  "futures",
@@ -992,7 +992,7 @@ dependencies = [
 [[package]]
 name = "ledger-transport-hid"
 version = "0.7.0"
-source = "git+https://github.com/Zondax/ledger-rs?branch=master#3c1e777c24e695b2d0fa98320613ee9a19b0010e"
+source = "git+https://github.com/Zondax/ledger-rs?branch=master#b8b72b9ba8be6d8912b3ed44bdcd48ed9c96e64d"
 dependencies = [
  "byteorder",
  "cfg-if 0.1.10",
@@ -1009,7 +1009,7 @@ dependencies = [
 [[package]]
 name = "ledger-transport-zemu"
 version = "0.7.0"
-source = "git+https://github.com/Zondax/ledger-rs?branch=master#3c1e777c24e695b2d0fa98320613ee9a19b0010e"
+source = "git+https://github.com/Zondax/ledger-rs?branch=master#b8b72b9ba8be6d8912b3ed44bdcd48ed9c96e64d"
 dependencies = [
  "glob",
  "grpc",
@@ -1027,7 +1027,7 @@ dependencies = [
 [[package]]
 name = "ledger-zondax-generic"
 version = "0.7.0"
-source = "git+https://github.com/Zondax/ledger-rs?branch=master#3c1e777c24e695b2d0fa98320613ee9a19b0010e"
+source = "git+https://github.com/Zondax/ledger-rs?branch=master#b8b72b9ba8be6d8912b3ed44bdcd48ed9c96e64d"
 dependencies = [
  "ledger-apdu",
  "ledger-transport",
@@ -1918,8 +1918,17 @@ version = "0.17.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2932dc07acd2066ff2e3921a4419606b220ba6cd03a9935123856cc534877056"
 dependencies = [
+ "secp256k1-sys 0.1.2",
+]
+
+[[package]]
+name = "secp256k1"
+version = "0.20.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "733b114f058f260c0af7591434eef4272ae1a8ec2751766d3cb89c6df8d5e450"
+dependencies = [
  "rand 0.6.5",
- "secp256k1-sys",
+ "secp256k1-sys 0.4.0",
 ]
 
 [[package]]
@@ -1927,6 +1936,15 @@ name = "secp256k1-sys"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7ab2c26f0d3552a0f12e639ae8a64afc2e3db9c52fe32f5fc6c289d38519f220"
+dependencies = [
+ "cc",
+]
+
+[[package]]
+name = "secp256k1-sys"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "67e4b6455ee49f5901c8985b88f98fb0a0e1d90a6661f5a03f4888bd987dad29"
 dependencies = [
  "cc",
 ]

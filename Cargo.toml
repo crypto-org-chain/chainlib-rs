@@ -9,7 +9,7 @@ autoexamples = false
 serde = { version = "1.0", features = ["derive"] }
 sorted-json = "0.1"
 serde_json = "1.0"
-secp256k1 = { version = "0.17", default-features = false, features = ["rand"] }
+secp256k1 = { version = "0.20", default-features = false, features = ["rand"] }
 tiny-bip39 = "0.8"
 anyhow = { version = "1.0", features = ["std"] }
 hdwallet = "0.2"
