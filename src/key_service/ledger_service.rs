@@ -1,8 +1,8 @@
 use crate::ledger_app::CryptoApp;
 use crate::ledger_app::PubkeyAddress;
 use async_trait::async_trait;
+use hdwallet::secp256k1::PublicKey as InnerPublicKey;
 use ledger_transport::APDUTransport;
-use secp256k1::PublicKey as InnerPublicKey;
 use std::sync::Arc;
 use zx_bip44::BIP44Path;
 

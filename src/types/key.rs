@@ -1,6 +1,6 @@
 use crate::error::Error;
+use hdwallet::secp256k1;
 use hdwallet::ExtendedPrivKey;
-use secp256k1::rand::Rng;
 use secp256k1::{All, Secp256k1};
 use secp256k1::{Error as SecpError, PublicKey as InnerPublicKey, SecretKey};
 use serde::Serialize;
@@ -38,11 +38,6 @@ impl AsRef<SecretKey> for PrivateKey {
 }
 
 impl PrivateKey {
-    pub fn new<R: Rng + ?Sized>(rng: &mut R) -> Self {
-        let secret_key = SecretKey::new(rng);
-        Self(secret_key)
-    }
-
     pub fn from_slice(slice: &[u8]) -> Result<Self, SecpError> {
         let secret_key = SecretKey::from_slice(slice)?;
         Ok(Self(secret_key))

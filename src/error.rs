@@ -1,4 +1,5 @@
 use crate::hd_wallet::mnemonic::MnemonicError;
+use hdwallet::secp256k1;
 use thiserror::Error;
 
 #[derive(Error, Debug)]

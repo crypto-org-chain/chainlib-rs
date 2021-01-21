@@ -6,7 +6,7 @@ use crate::key_service::KeyService;
 use async_trait::async_trait;
 use bitcoin_hashes::{ripemd160, sha256};
 use bitcoin_hashes::{Hash, HashEngine};
-use secp256k1::Message;
+use hdwallet::secp256k1::{Message, Secp256k1};
 use stdtx::address::{Address, ADDRESS_SIZE};
 
 /// stores private key
@@ -33,7 +33,7 @@ impl PrivateKeyService {
         engine.input(msg);
         let hash = sha256::Hash::from_engine(engine);
         let message = Message::from_slice(hash.as_inner())?;
-        let signer = secp256k1::Secp256k1::signing_only();
+        let signer = Secp256k1::signing_only();
         let signature = signer.sign(&message, self.private_key.as_ref());
         let raw = signature.serialize_compact();
         let signature_str = base64::encode(&raw);
