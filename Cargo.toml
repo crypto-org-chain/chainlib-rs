@@ -9,7 +9,7 @@ repository  = "https://github.com/crypto-com/chainlib-rs"
 description = "A library to help with creating HD wallets and signing Crypto.com Chain transfer transactions offline."
 readme      = "README.md"
 categories = ["cryptography", "cryptography::cryptocurrencies", "encoding"]
-keywords   = ["blockchain", "crypto.com", "chain", "cosmos", "tendermint", "transaction"]
+keywords   = ["blockchain", "crypto-com", "chain", "cosmos", "tendermint", "transaction"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"], optional = true }
