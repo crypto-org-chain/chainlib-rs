@@ -35,3 +35,6 @@ chain-maind tx bank send \
 or 
 
 `cargo build --example protobuf --features=grpc`
+
+# unit test
+`cargo test --lib --all-features`

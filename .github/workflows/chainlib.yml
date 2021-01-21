@@ -63,6 +63,8 @@ jobs:
           target: ${{ matrix.target }}
           override: true
       - run: cargo build --target ${{ matrix.target }} --release --all-features
+      - run: cargo build --target ${{ matrix.target }} --release --example amino
+      - run: cargo build --target ${{ matrix.target }} --release --example protobuf --features=grpc
 
   test:
     runs-on: ubuntu-latest
@@ -79,4 +81,4 @@ jobs:
           profile: minimal
           toolchain: ${{ matrix.rust }}
           override: true
-      - run: cargo test --release
+      - run: cargo test --release --lib --all-features
