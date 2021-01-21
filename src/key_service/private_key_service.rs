@@ -12,7 +12,7 @@ use stdtx::address::{Address, ADDRESS_SIZE};
 /// stores private key
 #[derive(Clone)]
 pub struct PrivateKeyService {
-    pub private_key: PrivateKey,
+    private_key: PrivateKey,
 }
 
 impl PrivateKeyService {

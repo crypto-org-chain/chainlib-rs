@@ -6,8 +6,11 @@ use serde::Serialize;
 #[derive(Serialize, Debug, Clone, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum SyncMode {
+    /// synchronous
     Sync,
+    /// asynchronous
     Async,
+    /// block-commit -- only for development
     Block,
 }
 
@@ -15,7 +18,9 @@ pub enum SyncMode {
 #[derive(Serialize, Debug, Clone, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum Denom {
+    /// base unit
     Basecro,
+    /// human unit
     Cro,
 }
 
@@ -44,8 +49,10 @@ impl Amount {
 /// transaction fee
 #[derive(Serialize, Debug, Clone, PartialEq, Eq)]
 pub struct Fee {
+    /// gas limit
     #[serde(serialize_with = "serde_to_str")]
     pub gas: u64,
+    /// fee to be paid
     pub amount: Vec<Amount>,
 }
 

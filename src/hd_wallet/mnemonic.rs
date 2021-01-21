@@ -5,19 +5,24 @@ use bip39::{Language, MnemonicType, Seed};
 use hdwallet::{ChainPath, KeyChain};
 use hdwallet::{DefaultKeyChain, ExtendedPrivKey};
 
+/// BIP39 mnemonic code
 pub struct Mnemonic {
     inner_mnemonic: bip39::Mnemonic,
     password: Option<String>,
 }
 
+/// errors from processing mnemonic
 #[derive(thiserror::Error, Debug)]
 pub enum MnemonicError {
+    /// invalid word count
     #[error("input error: {0}")]
     InputError(String),
 
+    /// unknown words etc.
     #[error("mnemonic error")]
     MnemonicError(#[from] anyhow::Error),
 
+    /// invalid path etc.
     #[error("hdwallet error")]
     HdWalletError(hdwallet::error::Error),
 }

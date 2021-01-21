@@ -8,6 +8,7 @@ use crate::types::transaction::Transaction;
 #[cfg(not(feature = "grpc"))]
 use serde::Serialize;
 
+/// API client
 pub struct Client {
     // base api url is set in section `address` in $CHAIN_MAIND_HOME/config/app.toml
     base_api_url: String,
@@ -17,6 +18,7 @@ pub struct Client {
 }
 
 impl Client {
+    /// create a new client
     #[cfg(any(not(feature = "grpc")))]
     pub fn new(base_api_url: String) -> Self {
         Self { base_api_url }
@@ -30,6 +32,7 @@ impl Client {
         }
     }
 
+    /// get account number and sequence number
     pub async fn get_account_info(&self, address: &str) -> Result<(u64, u64), Error> {
         let url = format!(
             "{}/cosmos/auth/v1beta1/accounts/{}",
@@ -64,6 +67,7 @@ impl Client {
         let response = client.broadcast_tx(request).await.unwrap();
         response.into_inner()
     }
+    /// broadcast transaction using JSON-RPC
     #[cfg(not(feature = "grpc"))]
     pub async fn broadcast_tx<M: Serialize>(&self, tx: Transaction<M>) -> Result<String, Error> {
         let url = format!("{}/txs", self.base_api_url);

@@ -1,6 +1,6 @@
 # Changelog
 
-*January 19, 2021*
+*January 21, 2021*
 
 The initial release is tested with the v0.8 release of Crypto.com Chain
 (based on the v0.40.0 version of Cosmos SDK and v0.34.2 version of Tendermint).

@@ -8,7 +8,9 @@ use crate::proto::cosmos::tx::v1beta1::{
     mode_info, AuthInfo, Fee, ModeInfo, SignDoc, SignerInfo, TxBody, TxRaw,
 };
 
+/// struct for building signed transactions
 pub struct TxBuilder<T: KeyService + Clone> {
+    /// signing backend
     pub key_service: T,
     chain_id: String,
     messages: Vec<Msg>,
@@ -26,6 +28,7 @@ fn encode<T: prost::Message>(msg: &T) -> Result<Vec<u8>, Error> {
 }
 
 impl<T: KeyService + Clone> TxBuilder<T> {
+    /// instatiate new tx builder
     pub fn new(
         key_service: T,
         chain_id: String,
@@ -45,21 +48,25 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         }
     }
 
+    /// set global nonce
     pub fn set_account_number(&mut self, account_number: u64) -> &mut Self {
         self.account_number = account_number;
         self
     }
 
+    /// set local nonce
     pub fn set_sequence(&mut self, sequence: u64) -> &mut Self {
         self.sequence = sequence;
         self
     }
 
+    /// add a message to execute
     pub fn add_message(&mut self, msg: Msg) -> &mut Self {
         self.messages.push(msg);
         self
     }
 
+    /// public key encoded as protobuf Any
     pub fn pk_any(&self) -> Result<prost_types::Any, Error> {
         let pk = self.key_service.public_key()?;
         let mut buf = Vec::new();
@@ -71,6 +78,7 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         Ok(pk_any)
     }
 
+    /// raw tx bytes
     pub fn raw_tx_body(&self) -> Result<Vec<u8>, Error> {
         let body = TxBody {
             messages: self.messages.iter().map(|msg| msg.clone().into()).collect(),
@@ -85,6 +93,7 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         Ok(body_buf)
     }
 
+    /// signing metadata
     pub fn auth_info(&self) -> Result<AuthInfo, Error> {
         let single = mode_info::Single { mode: 1 };
 
@@ -106,6 +115,7 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         })
     }
 
+    /// create a MsgSend type message
     pub fn create_msg(&self, to_address: String, amount: Coin) -> Result<Msg, Error> {
         let from_address = self.key_service.address()?;
         let address_str = from_address.to_bech32(ACCOUNT_ADDRESS_PREFIX);
@@ -122,6 +132,7 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         Ok(Msg::from(any))
     }
 
+    /// get signing payload
     pub fn sign_doc(&self) -> Result<SignDoc, Error> {
         let body_bytes = self.raw_tx_body()?;
         let auth_info_bytes = encode(&self.auth_info()?)?;
@@ -134,6 +145,7 @@ impl<T: KeyService + Clone> TxBuilder<T> {
         Ok(sign_doc)
     }
 
+    /// build a tx
     pub async fn build(&self) -> Result<String, Error> {
         let sign_doc = self.sign_doc()?;
         let signdoc_buf = encode(&sign_doc)?;

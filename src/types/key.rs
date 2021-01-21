@@ -38,6 +38,7 @@ impl AsRef<SecretKey> for PrivateKey {
 }
 
 impl PrivateKey {
+    /// construct from raw bytes
     pub fn from_slice(slice: &[u8]) -> Result<Self, SecpError> {
         let secret_key = SecretKey::from_slice(slice)?;
         Ok(Self(secret_key))
@@ -45,6 +46,7 @@ impl PrivateKey {
 }
 
 impl PublicKey {
+    /// decode from base64 input
     pub fn from_base64_str(pubkey_str: &str) -> Result<Self, Error> {
         let raw = base64::decode(pubkey_str)
             .map_err(|_e| Error::InputError("invalid publickey input".to_string()))?;

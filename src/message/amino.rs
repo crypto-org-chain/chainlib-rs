@@ -7,15 +7,20 @@ use stdtx::Address;
 #[derive(Serialize, Debug, Clone, PartialEq, Eq)]
 pub struct Message<V: Serialize> {
     #[serde(rename = "type")]
+    /// msg identifier
     pub transfer_type: String,
+    /// msg payload
     pub value: V,
 }
 
 /// the value in Transfer
 #[derive(Serialize, Debug, Clone, PartialEq, Eq)]
 pub struct TransferValue {
+    /// sender
     pub from_address: String,
+    /// receiver
     pub to_address: String,
+    /// coints to send
     pub amount: Vec<Amount>,
 }
 

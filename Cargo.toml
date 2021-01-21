@@ -4,6 +4,12 @@ version = "0.1.0"
 authors = ["linfeng yuan <linfeng@crypto.com>"]
 edition = "2018"
 autoexamples = false
+license     = "Apache-2.0"
+repository  = "https://github.com/crypto-com/chainlib-rs"
+description = "A library to help with creating HD wallets and signing Crypto.com Chain transfer transactions offline."
+readme      = "README.md"
+categories = ["cryptography", "cryptography::cryptocurrencies", "encoding"]
+keywords   = ["blockchain", "crypto.com", "chain", "cosmos", "tendermint", "transaction"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"], optional = true }
@@ -59,3 +65,9 @@ default = ["amino"]
 ledger = ["ledger-zondax-generic", "ledger-transport-hid", "ledger-transport", "hex"]
 amino = ["serde", "serde_json", "sorted-json"]
 grpc = ["tonic", "prost", "prost-types"]
+
+[profile.release]
+overflow-checks = true
+
+[package.metadata.docs.rs]
+all-features = true

@@ -6,15 +6,24 @@ use crate::types::signature::Signature;
 use crate::types::transaction::{Transaction, Tx};
 use serde::Serialize;
 
+/// struct for building signed transactions
 #[derive(Clone)]
 pub struct TxBuilder<T: KeyService + Clone, M: Serialize + Clone> {
+    /// signing backend
     pub key_service: T,
+    /// network identifier
     pub chain_id: String,
+    /// messages to be executed
     pub messages: Vec<M>,
+    /// extra payload
     pub memo: String,
+    /// global nonce
     pub account_number: u64,
+    /// local nonce
     pub sequence: u64,
+    /// fee to be paid
     pub fee: Option<Amount>,
+    /// gas limit
     pub gas: Option<u64>,
 }
 
@@ -23,6 +32,7 @@ where
     T: KeyService + Clone,
     M: Serialize + Clone,
 {
+    /// instatiate new tx builder
     pub fn new(
         key_service: T,
         chain_id: String,
@@ -43,16 +53,19 @@ where
         }
     }
 
+    /// set global nonce
     pub fn set_account_number(&mut self, account_number: u64) -> &mut Self {
         self.account_number = account_number;
         self
     }
 
+    /// set local nonce
     pub fn set_sequence(&mut self, sequence: u64) -> &mut Self {
         self.sequence = sequence;
         self
     }
 
+    /// add tx message to be executed
     pub fn add_message(&mut self, msg: M) -> &mut Self {
         self.messages.push(msg);
         self
@@ -94,6 +107,7 @@ where
         Ok(signature)
     }
 
+    /// finalize transaction
     pub async fn build(&mut self, sync_mode: SyncMode) -> Result<Transaction<M>, Error> {
         let signature = self.sign().await?;
         let fee = self.get_fee();
