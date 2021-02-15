@@ -59,7 +59,7 @@ path = "examples/example_protobuf.rs"
 required-features = ["grpc"]
 
 [dev-dependencies]
-env_logger = "0.8.2"
+env_logger = "0.8.3"
 
 [features]
 default = ["amino"]
