@@ -1,12 +1,12 @@
 #![deny(unsafe_code, unstable_features)]
-//! # Crypto.com Chain Rust library
+//! # Crypto.org Chain Rust library
 //!
 //! This crate helps with creating HD wallets and
-//! signing [Crypto.com Chain](https://github.com/crypto-com/chain-main) transfer transactions offline.
+//! signing [Crypto.org Chain](https://github.com/crypto-org-chain/chain-main) transfer transactions offline.
 
 /// client for communication with chain-main API / RPC
 pub mod client;
-/// common constants used in Crypto.com Chain
+/// common constants used in Crypto.org Chain
 pub mod constant;
 /// possible errors
 pub mod error;

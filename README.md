@@ -1,4 +1,4 @@
-chainlib is a library to help with creating HD wallets and signing [Crypto.com Chain](https://github.com/crypto-com/chain-main) transfer transactions offline.
+chainlib is a library to help with creating HD wallets and signing [Crypto.org Chain](https://github.com/crypto-org-chain/chain-main) transfer transactions offline.
 
 # prepare
 Before a test, we need to send some coin amount to a HD wallet recovered from the mnemonic words.

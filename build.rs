@@ -19,9 +19,9 @@ mod grpc {
     use walkdir::WalkDir;
 
     /// The Cosmos commit or tag to be cloned and used to build the proto files
-    const COSMOS_REV: &str = "v0.40.0";
+    const COSMOS_REV: &str = "v0.42.0";
     // TODO: use version tag
-    const TENDERMINT_REV: &str = "v0.34.2";
+    const TENDERMINT_REV: &str = "v0.34.8";
 
     // All paths must end with a / and either be absolute or include a ./ to reference the current
     // working directory.

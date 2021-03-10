@@ -1,12 +1,12 @@
 [package]
 name = "chainlib"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["linfeng yuan <linfeng@crypto.com>"]
 edition = "2018"
 autoexamples = false
 license     = "Apache-2.0"
-repository  = "https://github.com/crypto-com/chainlib-rs"
-description = "A library to help with creating HD wallets and signing Crypto.com Chain transfer transactions offline."
+repository  = "https://github.com/crypto-org-chain/chainlib-rslib-rs"
+description = "A library to help with creating HD wallets and signing Crypto.org Chain transfer transactions offline."
 readme      = "README.md"
 categories = ["cryptography", "cryptography::cryptocurrencies", "encoding"]
 keywords   = ["blockchain", "chain", "cosmos", "tendermint", "transaction"]

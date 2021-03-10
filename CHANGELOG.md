@@ -1,5 +1,11 @@
 # Changelog
 
+*March 10, 2021*
+
+Dependency upgrades and name change to Crypto.org Chain.
+
+## v0.1.1
+
 *January 21, 2021*
 
 The initial release is tested with the v0.8 release of Crypto.com Chain

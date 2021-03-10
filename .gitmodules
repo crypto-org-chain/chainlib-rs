@@ -1,7 +1,7 @@
 [submodule "cosmos-sdk-go"]
 	path = cosmos-sdk-go
 	url = https://github.com/cosmos/cosmos-sdk.git
-	branch = v0.40.x
+	branch = v0.42.x
 [submodule "tendermint"]
 	path = tendermint
 	url = https://github.com/tendermint/tendermint.git
