@@ -107,9 +107,9 @@ checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
 
 [[package]]
 name = "bitcoin_hashes"
-version = "0.9.4"
+version = "0.9.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0aaf87b776808e26ae93289bc7d025092b6d909c193f0cdee0b3a86e7bd3c776"
+checksum = "3e6d72ba9671cb0929b5620e1bc30cdf5e206ccb3dbaa8964d67f6efc1e16129"
 
 [[package]]
 name = "bitflags"
