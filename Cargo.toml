@@ -35,12 +35,12 @@ log = "0.4"
 tonic = { version = "0.4.3", optional = true }
 eyre = "0.6.4"
 signature = "1.2.2"
-prost = { version = "0.7", optional = true }
+prost = { version = "0.8", optional = true }
 prost-types = { version = "0.7", optional = true }
 hex = { version = "0.4", optional = true }
 
 [build-dependencies]
-prost = "0.7"
+prost = "0.8"
 prost-build = "0.7"
 tonic = "0.4.3"
 tonic-build = "0.4.2"
