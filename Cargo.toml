@@ -19,7 +19,7 @@ serde_json = { version = "1.0", optional = true }
 tiny-bip39 = "0.8"
 anyhow = { version = "1.0", features = ["std"] }
 hdwallet = "0.3"
-bitcoin_hashes = "0.9"
+bitcoin_hashes = "0.10"
 rand = "0.8"
 base64 = "0.13"
 stdtx = "0.5.0"
