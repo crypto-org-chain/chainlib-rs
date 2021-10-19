@@ -41,7 +41,7 @@ hex = { version = "0.4", optional = true }
 
 [build-dependencies]
 prost = "0.8"
-prost-build = "0.8"
+prost-build = "0.9"
 tonic = "0.5"
 tonic-build = "0.5"
 regex = "1"
