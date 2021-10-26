@@ -2,7 +2,7 @@
 name = "chainlib"
 version = "0.1.1"
 authors = ["linfeng yuan <linfeng@crypto.com>"]
-edition = "2018"
+edition = "2021"
 autoexamples = false
 license = "Apache-2.0"
 repository = "https://github.com/crypto-org-chain/chainlib-rslib-rs"
@@ -13,39 +13,35 @@ keywords = ["blockchain", "chain", "cosmos", "tendermint", "transaction"]
 exclude = ["cosmos-sdk-go/**", "tendermint/**"]
 
 [dependencies]
-serde = { version = "1.0", features = ["derive"], optional = true }
-sorted-json = { version = "0.1", optional = true }
-serde_json = { version = "1.0", optional = true }
-tiny-bip39 = "0.8"
-anyhow = { version = "1.0", features = ["std"] }
-hdwallet = "0.3"
-bitcoin_hashes = "0.10"
-rand = "0.8"
-base64 = "0.13"
+serde = { version = "1.0.130", features = ["derive"], optional = true }
+sorted-json = { version = "0.1.0", optional = true }
+serde_json = { version = "1.0.68", optional = true }
+tiny-bip39 = "0.8.2"
+anyhow = { version = "1.0.44", features = ["std"] }
+hdwallet = "0.3.0"
+bitcoin_hashes = "0.10.0"
+base64 = "0.13.0"
 stdtx = "0.5.0"
-thiserror = "1.0"
-tokio = { version = "1.12", features = ["full"] }
-ledger-transport = { version = "0.8", optional = true }
-ledger-transport-hid = { version = "0.8", optional = true }
-ledger-zondax-generic = { version = "0.8", optional = true }
-zx-bip44 = "0.1"
+thiserror = "1.0.30"
+tokio = { version = "1.12.0", features = ["full"] }
+ledger-transport = { version = "0.8.0", optional = true }
+ledger-transport-hid = { version = "0.8.0", optional = true }
+ledger-zondax-generic = { version = "0.8.0", optional = true }
+zx-bip44 = { version = "0.1.0", optional = true }
 reqwest = { version = "0.11.6", features = ["json"] }
-async-trait = "0.1"
-log = "0.4"
-tonic = { version = "0.5", optional = true }
-eyre = "0.6.4"
-signature = "1.3.2"
-prost = { version = "0.8", optional = true }
-prost-types = { version = "0.8", optional = true }
-hex = { version = "0.4", optional = true }
+async-trait = "0.1.51"
+log = "0.4.14"
+tonic = { version = "0.6.0", optional = true }
+eyre = "0.6.5"
+prost = { version = "0.9.0", optional = true }
+prost-types = { version = "0.9.0", optional = true }
+hex = { version = "0.4.3", optional = true }
 
 [build-dependencies]
-prost = "0.8"
-prost-build = "0.9"
-tonic = "0.5"
-tonic-build = "0.5"
-regex = "1"
-walkdir = "2"
+prost-build = "0.9.0"
+tonic-build = "0.6.0"
+regex = "1.5.4"
+walkdir = "2.3.2"
 
 [[example]]
 name = "amino"
@@ -67,6 +63,7 @@ ledger = [
     "ledger-transport-hid",
     "ledger-transport",
     "hex",
+    "zx-bip44",
 ]
 amino = ["serde", "serde_json", "sorted-json"]
 grpc = ["tonic", "prost", "prost-types"]
