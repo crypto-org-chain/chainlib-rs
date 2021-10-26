@@ -32,7 +32,7 @@ zx-bip44 = "0.1"
 reqwest = { version = "0.11.6", features = ["json"] }
 async-trait = "0.1"
 log = "0.4"
-tonic = { version = "0.5", optional = true }
+tonic = { version = "0.6", optional = true }
 eyre = "0.6.4"
 signature = "1.2.2"
 prost = { version = "0.8", optional = true }
@@ -42,7 +42,7 @@ hex = { version = "0.4", optional = true }
 [build-dependencies]
 prost = "0.8"
 prost-build = "0.9"
-tonic = "0.5"
+tonic = "0.6"
 tonic-build = "0.5"
 regex = "1"
 walkdir = "2"
