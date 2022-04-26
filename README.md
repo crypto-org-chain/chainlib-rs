@@ -1,3 +1,9 @@
+# 🚨 DEPRECATED 🚨 
+
+This repo has been deprecated. You can use the "cosmrs" crate of [cosmos/cosmos-rust](https://github.com/cosmos/cosmos-rust/tree/main/cosmrs) instead. Please reference that repository in the future.
+
+-------
+
 chainlib is a library to help with creating HD wallets and signing [Crypto.org Chain](https://github.com/crypto-org-chain/chain-main) transfer transactions offline.
 
 # prepare
