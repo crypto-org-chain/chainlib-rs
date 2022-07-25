@@ -1,5 +1,5 @@
 // Copyright (c) 2020, Zondax GmbH (licensed under the Apache License Version 2.0)
-// Modifications Copyright (c) 2021-present (licensed under the Apache License, Version 2.0)
+// Modifications Copyright (c) 2021-present Crypto.org(licensed under the Apache License, Version 2.0)
 
 //! Support library for Crypto Ledger Nano S/X apps
 
